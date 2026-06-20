@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters — Liam Graham</title>
+  <meta name="description" content="Character transformations and range gallery for actor Liam Graham. From brooding antiheroes to vulnerable leads.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .char-masonry {
+      columns: 4;
+      column-gap: 5px;
+    }
+    .char-masonry .char-item {
+      break-inside: avoid;
+      margin-bottom: 5px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+    .char-masonry .char-item img {
+      width: 100%;
+      display: block;
+      filter: grayscale(25%) brightness(0.82) contrast(1.05);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .char-masonry .char-item:hover img {
+      filter: grayscale(0%) brightness(1) contrast(1);
+      transform: scale(1.04);
+    }
+    /* Persistent bottom gradient for depth */
+    .char-masonry .char-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(5,5,5,0.55) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.4s ease;
+    }
+    .char-masonry .char-item:hover::after {
+      opacity: 0.8;
+    }
+    .char-masonry .char-item .char-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.4) 60%, transparent 100%);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+    .char-masonry .char-item:hover .char-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 1024px) { .char-masonry { columns: 3; column-gap: 4px; } .char-masonry .char-item { margin-bottom: 4px; } }
+    @media (max-width: 768px) { .char-masonry { columns: 2; column-gap: 3px; } .char-masonry .char-item { margin-bottom: 3px; } }
+    @media (max-width: 480px) { .char-masonry { columns: 2; column-gap: 2px; } .char-masonry .char-item { margin-bottom: 2px; } }
+
+    /* Cinematic intro animation */
+    .char-hero {
+      height: 50vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .char-hero-bg {
+      position: absolute;
+      inset: -2%;
+      width: 104%;
+      height: 104%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+      opacity: 0.12;
+    }
+    .char-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: grayscale(100%) contrast(1.1);
+    }
+    .char-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, transparent 0%, var(--black) 65%),
+        linear-gradient(to top, var(--black) 0%, transparent 30%);
+    }
+    .char-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .range-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .range-stat {
+      text-align: center;
+    }
+    .range-stat-value {
+      font-family: var(--display);
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .range-stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation"><a href="index.html" class="nav-logo">Liam <span>Graham</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="credits.html">Credits</a></li><li><a href="characters.html" class="active">Characters</a></li><li><a href="awards.html">Awards</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" class="nav-imdb">IMDb ↗</a></li></ul><button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></nav>
+  <div class="nav-mobile-overlay"><a href="index.html">Home</a><a href="credits.html">Credits</a><a href="characters.html">Characters</a><a href="awards.html">Awards</a><a href="news.html">News</a><a href="contact.html">Contact</a></div>
+
+  <!-- CINEMATIC HERO -->
+  <section class="char-hero">
+    <div class="char-hero-bg">
+      <img src="images/headshot-primary.jpg" alt="">
+      <img src="images/headshot-intense.jpg" alt="">
+      <img src="images/character-brooding.png" alt="">
+      <img src="images/headshot-beach.jpg" alt="">
+      <img src="images/character-intense-dark.png" alt="">
+    </div>
+    <div class="char-hero-overlay"></div>
+    <div class="char-hero-content">
+      <div class="section-divider" style="margin:0 auto 1rem;"></div>
+      <p class="heading-sm mb-2">Range &amp; Versatility</p>
+      <h1 class="heading-display" style="font-size:clamp(3rem, 8vw, 7rem);">Characters</h1>
+      <p class="body-lg" style="max-width:50ch; margin:1rem auto 0;">Every role demands transformation. This gallery showcases the breadth of character work across Liam's career.</p>
+      <div class="range-stats">
+        <div class="range-stat"><div class="range-stat-value">20+</div><div class="range-stat-label">Screen Roles</div></div>
+        <div class="range-stat"><div class="range-stat-value">6</div><div class="range-stat-label">Lead Characters</div></div>
+        <div class="range-stat"><div class="range-stat-value">5+</div><div class="range-stat-label">Genres</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding: 4px;">
+    <div class="char-masonry stagger-grid">
+
+      <div class="char-item gallery-trigger">
+        <img src="images/headshot-primary.jpg" alt="Liam Graham — close-up headshot, green eyes" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Leading Man</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Warm. Magnetic. Present.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/character-intense-dark.png" alt="Dramatic intensity — dark character work" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Antihero</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Dark intensity. Controlled menace.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-07.png" alt="Emotional range — four expressions" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Emotional Range</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Joy. Fury. Sorrow. Intensity.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/character-brooding.png" alt="Brooding intensity" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Outsider</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Edgy. Unpredictable. Coiled.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/headshot-intense.jpg" alt="Intense brooding headshot" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Emotional Depth</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Vulnerability. Rawness. Truth.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-12.png" alt="Period costume — Victorian era character" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Period Drama</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Historical. Refined. Classical.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/headshot-beach.jpg" alt="Beach portrait — styled hair" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Everyman</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Relatable. Grounded. Genuine.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-18.png" alt="Suited gentleman — charming character" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Charmer</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Polished. Confident. Disarming.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/project-period-drama.png" alt="Military uniform — period drama still" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Soldier</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Duty. Conflict. Resolve.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-15.png" alt="Theatrical costume — gold sequin vest" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Theatrical</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Flamboyant. Bold. Commanding.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/headshot-bw-beanie.png" alt="Black and white — beanie, warm smile" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Warmth</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Likeable. Open. Honest.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-22.png" alt="Western cowboy character" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">The Drifter</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Restless. Searching. Untamed.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/character-profile.png" alt="Dramatic profile shot" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Character Actor</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Range. Transformation. Craft.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-05.png" alt="Four expressions — dramatic range" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Versatility</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Multiple looks. One actor.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/editorial-outdoor.png" alt="Editorial outdoor portrait" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Editorial</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Magazine-ready. Cinematic.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-25.png" alt="Expressive character — shocked" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Expressive</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">The face tells the story.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/hero-section-2.png" alt="Night street — cinematic portrait" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Cinematic</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Moody. Atmospheric. Real.</p>
+        </div>
+      </div>
+
+      <div class="char-item gallery-trigger">
+        <img src="images/portrait-10.png" alt="Laughing character — Hawaiian shirt" loading="lazy">
+        <div class="char-label">
+          <p class="heading-sm" style="color:var(--gold); margin-bottom:0.15rem;">Comedy</p>
+          <p style="font-family:var(--serif); font-size:0.9rem; color:var(--text-primary);">Timing. Charm. Playfulness.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center; padding-top:4rem; padding-bottom:4rem; border-top:1px solid var(--border);">
+    <div class="reveal">
+      <p class="heading-sm mb-2">Casting</p>
+      <h2 class="heading-lg" style="margin-bottom:1rem;">See someone for your next project?</h2>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="credits.html" class="btn btn-outline">View Full Credits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer"><div class="footer-grid"><div><div class="footer-logo">Liam <span style="color:var(--gold);">Graham</span></div><p class="body-sm max-w-prose">Award-winning Australian screen actor.</p></div><div><p class="heading-sm mb-2">Navigate</p><div class="footer-links"><a href="credits.html">Filmography</a><a href="characters.html">Characters</a><a href="awards.html">Awards</a><a href="news.html">News</a><a href="contact.html">Contact</a></div></div><div><p class="heading-sm mb-2">Connect</p><div class="footer-links"><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener">IMDb ↗</a><a href="https://www.instagram.com/liamansellgraham/" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© 2026 Liam Graham. All rights reserved.</span></div></footer>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close">✕</button><img id="lightbox-img" src="" alt=""></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

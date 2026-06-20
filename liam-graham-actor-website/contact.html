@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Liam Graham</title>
+  <meta name="description" content="Contact Australian actor Liam Graham for casting enquiries, representation, and professional opportunities.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation"><a href="index.html" class="nav-logo">Liam <span>Graham</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="credits.html">Credits</a></li><li><a href="characters.html">Characters</a></li><li><a href="awards.html">Awards</a></li><li><a href="news.html">News</a></li><li><a href="contact.html" class="active">Contact</a></li><li><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" class="nav-imdb">IMDb ↗</a></li></ul><button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button></nav>
+  <div class="nav-mobile-overlay"><a href="index.html">Home</a><a href="credits.html">Credits</a><a href="characters.html">Characters</a><a href="awards.html">Awards</a><a href="news.html">News</a><a href="contact.html">Contact</a></div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="section-divider"></div>
+    <p class="heading-sm mb-1">Get in Touch</p>
+    <h1 class="heading-xl">Contact</h1>
+    <p class="body-lg" style="margin-top:0.5rem;">Available for film, television, commercial, and voice work.</p>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; max-width:1000px; margin:0 auto;" class="reveal">
+
+      <!-- Left Column — Info -->
+      <div>
+        <h2 class="heading-lg" style="margin-bottom:1.25rem;">Let's discuss your<br>next project.</h2>
+        <p class="body-lg" style="margin-bottom:1.5rem;">Whether you're a casting director seeking a versatile character actor, an agent exploring representation, or a producer with a project in development — I'd welcome the conversation.</p>
+
+        <div style="margin-bottom:2rem;">
+          <div style="padding:1.25rem 0; border-bottom:1px solid var(--border);">
+            <p class="heading-sm mb-1">Location</p>
+            <p class="body-md" style="color:var(--text-primary);">Australia — Available internationally</p>
+          </div>
+          <div style="padding:1.25rem 0; border-bottom:1px solid var(--border);">
+            <p class="heading-sm mb-1">IMDb</p>
+            <p><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" style="color:var(--gold); font-size:0.9rem;">imdb.com/name/nm4223899 ↗</a></p>
+          </div>
+          <div style="padding:1.25rem 0; border-bottom:1px solid var(--border);">
+            <p class="heading-sm mb-1">Instagram</p>
+            <p><a href="https://www.instagram.com/liamansellgraham/" target="_blank" rel="noopener" style="color:var(--gold); font-size:0.9rem;">@liamansellgraham ↗</a></p>
+          </div>
+        </div>
+
+        <div style="padding:1.5rem; background:var(--surface); border:1px solid var(--border);">
+          <p class="heading-sm mb-1">Quick Stats</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:0.75rem;">
+            <div><span class="body-sm">Nationality</span><p style="color:var(--text-primary); font-size:0.9rem;">Australian / British</p></div>
+            <div><span class="body-sm">Heritage</span><p style="color:var(--text-primary); font-size:0.9rem;">Scottish-born</p></div>
+            <div><span class="body-sm">Eyes</span><p style="color:var(--text-primary); font-size:0.9rem;">Blue-Green</p></div>
+            <div><span class="body-sm">Hair</span><p style="color:var(--text-primary); font-size:0.9rem;">Brown</p></div>
+            <div><span class="body-sm">Accents</span><p style="color:var(--text-primary); font-size:0.9rem;">Australian, Scottish, American</p></div>
+            <div><span class="body-sm">Based</span><p style="color:var(--text-primary); font-size:0.9rem;">Australia</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column — Form -->
+      <div>
+        <form id="contact-form" style="background:var(--surface); border:1px solid var(--border); padding:2rem;">
+          <p class="heading-sm mb-3">Professional Enquiry</p>
+
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="role">Industry Role</label>
+            <select class="form-select" id="role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="casting-director">Casting Director</option>
+              <option value="agent">Agent / Manager</option>
+              <option value="producer">Producer</option>
+              <option value="director">Director</option>
+              <option value="production">Production Company</option>
+              <option value="press">Press / Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="project">Project / Subject</label>
+            <input class="form-input" type="text" id="project" name="project" placeholder="Brief project title or subject">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about the role, project, or opportunity..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Enquiry</button>
+        </form>
+
+        <p class="body-sm" style="margin-top:1rem; text-align:center;">All enquiries will receive a response within 48 hours.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer"><div class="footer-grid"><div><div class="footer-logo">Liam <span style="color:var(--gold);">Graham</span></div><p class="body-sm max-w-prose">Award-winning Australian screen actor.</p></div><div><p class="heading-sm mb-2">Navigate</p><div class="footer-links"><a href="credits.html">Filmography</a><a href="characters.html">Characters</a><a href="awards.html">Awards</a><a href="news.html">News</a><a href="contact.html">Contact</a></div></div><div><p class="heading-sm mb-2">Connect</p><div class="footer-links"><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener">IMDb ↗</a><a href="https://www.instagram.com/liamansellgraham/" target="_blank" rel="noopener">Instagram ↗</a></div></div></div><div class="footer-bottom"><span>© 2026 Liam Graham. All rights reserved.</span></div></footer>
+
+  <script src="js/main.js"></script>
+
+  <style>
+    @media (max-width: 768px) {
+      .section > div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+  </style>
+</body>
+</html>
