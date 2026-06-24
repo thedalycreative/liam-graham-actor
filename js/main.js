@@ -29,6 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Carousel (credits-carousel + any [data-carousel]) ---
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const prev = carousel.querySelector('.carousel-prev');
+    const next = carousel.querySelector('.carousel-next');
+    if (!track) return;
+
+    const stepSize = () => {
+      const card = track.querySelector(':scope > *');
+      if (!card) return track.clientWidth;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0') || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    const updateButtons = () => {
+      const max = track.scrollWidth - track.clientWidth - 1;
+      if (prev) prev.toggleAttribute('disabled', track.scrollLeft <= 0);
+      if (next) next.toggleAttribute('disabled', track.scrollLeft >= max);
+    };
+
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -stepSize(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: stepSize(), behavior: 'smooth' }));
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  });
+
   // --- Scroll Reveal Observer ---
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

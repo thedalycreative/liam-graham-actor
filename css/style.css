@@ -786,6 +786,104 @@ body::after {
   }
 }
 
+/* --- Credits Carousel (home page) --- */
+.credits-carousel {
+  position: relative;
+  margin: 0 -1rem;
+  padding: 0 2.5rem;
+}
+
+.credits-carousel .carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem 1rem 1.5rem;
+  scroll-padding-inline: 1rem;
+}
+
+.credits-carousel .carousel-track::-webkit-scrollbar { display: none; }
+
+.credits-carousel .carousel-track > .credit-card {
+  flex: 0 0 calc((100% - 2 * 1.25rem) / 3);
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .credits-carousel .carousel-track > .credit-card {
+    flex: 0 0 calc((100% - 1.25rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .credits-carousel {
+    margin: 0 -1.5rem;
+    padding: 0 0.5rem;
+  }
+  .credits-carousel .carousel-track > .credit-card {
+    flex: 0 0 calc(100% - 2.5rem);
+  }
+}
+
+.carousel-btn {
+  position: absolute;
+  top: calc(50% - 1.25rem);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: background var(--duration-fast) ease,
+              border-color var(--duration-fast) ease,
+              color var(--duration-fast) ease,
+              opacity var(--duration-fast) ease,
+              transform var(--duration-fast) ease;
+}
+
+.carousel-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+.carousel-btn[disabled],
+.carousel-btn[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.carousel-prev { left: -0.25rem; }
+.carousel-next { right: -0.25rem; }
+
+@media (max-width: 640px) {
+  .carousel-btn { display: none; }
+}
+
 /* --- Character Gallery --- */
 .character-grid {
   display: grid;
@@ -805,14 +903,70 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
+  transform: scale(1.28);
+  transform-origin: center 30%;
   transition: all 1s var(--ease-out-expo);
-  filter: grayscale(30%) brightness(0.75) contrast(1.05);
+  filter: grayscale(30%) brightness(0.78) contrast(1.05);
 }
 
 .character-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.34);
   filter: grayscale(0%) brightness(0.95) contrast(1);
+}
+
+/* --- Dark Section (always-black band, regardless of theme) --- */
+.section-dark {
+  background: #0A0A0A !important;
+  color: #FAF9F6;
+  border-top: 1px solid #1A1A1A !important;
+  border-bottom: 1px solid #1A1A1A !important;
+}
+
+.section-dark .heading-xl,
+.section-dark .heading-lg,
+.section-dark .heading-md {
+  color: #FAF9F6;
+}
+
+.section-dark .body-lg,
+.section-dark .body-md,
+.section-dark .body-sm {
+  color: #C2BDB1;
+}
+
+.section-dark .heading-sm { color: var(--gold-dim); }
+
+.section-dark .section-divider { background: var(--gold-dim); }
+
+.section-dark .btn-ghost {
+  color: #FAF9F6;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.section-dark .btn-ghost:hover {
+  color: #0A0A0A;
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.section-dark .character-card::after {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.3) 35%,
+    transparent 55%
+  );
+}
+.section-dark .character-card:hover::after {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    transparent 65%
+  );
+}
+.section-dark .character-card-overlay .heading-md {
+  color: #FAF9F6 !important;
 }
 
 /* Persistent subtle gradient for depth */
