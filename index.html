@@ -43,7 +43,7 @@
       <li><a href="news.html">News</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg></button></li>
-      <li><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" class="nav-imdb">IMDb ↗</a></li>
+      <li><a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" class="nav-imdb" aria-label="View Liam Graham on IMDb">IMDb</a></li>
     </ul>
     
     <!-- Hamburger menu button for mobile -->
@@ -61,8 +61,7 @@
     <a href="awards.html">Awards</a>
     <a href="news.html">News</a>
     <a href="contact.html">Contact</a>
-    <a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener"
-      style="color: var(--gold); font-size: 1.5rem;">IMDb ↗</a>
+    <a href="https://www.imdb.com/name/nm4223899/" target="_blank" rel="noopener" class="nav-imdb" aria-label="View Liam Graham on IMDb">IMDb</a>
     <button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg></button>
   </div>
 
@@ -140,11 +139,6 @@
   <section class="laurel-bar reveal">
     <div class="laurel">
       <div class="laurel-icon">🏆</div>
-      <div class="laurel-title">Best Supp. Actor — Winner</div>
-      <div class="laurel-detail">Golden Globe Awards</div>
-    </div>
-    <div class="laurel">
-      <div class="laurel-icon">🏆</div>
       <div class="laurel-title">Best Actor — Winner</div>
       <div class="laurel-detail">Nordic International Film Festival</div>
     </div>
@@ -162,6 +156,54 @@
       <div class="laurel-icon">🎭</div>
       <div class="laurel-title">Best Ensemble — Nominee</div>
       <div class="laurel-detail">HollyWeb Festival</div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT / BIO STRIP ===== -->
+  <!-- Short actor biography and career highlights — moved up to introduce Liam before his work -->
+  <section class="section">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;" class="reveal">
+
+      <!-- Bio text and key statistics -->
+      <div>
+        <div class="section-divider"></div>
+        <p class="heading-sm mb-1">About</p>
+        <h2 class="heading-lg" style="margin-bottom:1.25rem;">An actor drawn to<br>complexity and truth.</h2>
+        <p class="body-lg" style="margin-bottom:1rem;">Liam Graham is a Scottish-born Australian actor known for
+          emotionally transparent performances and a quietly magnetic screen presence. His work spans psychological
+          thrillers, social dramas, surreal noir, and horror — always anchored by physicality and emotional precision.
+        </p>
+        <p class="body-md" style="margin-bottom:1.5rem;">Trained through the Western Australian Youth Theatre Company
+          and The Hub Studio's Masterclass, Graham has built a career characterised by range and commitment. His face —
+          described by casting directors as "highly expressive" — is both a gift and a signature.</p>
+
+        <!-- Career statistics block -->
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">20+</div>
+            <div class="body-sm">Screen Credits</div>
+          </div>
+          <div>
+            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">3</div>
+            <div class="body-sm">Award Nominations</div>
+          </div>
+          <div>
+            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">2</div>
+            <div class="body-sm">Award Wins</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial portrait and review quote -->
+      <div style="position:relative;">
+        <img src="images/editorial-outdoor.png" alt="Liam Graham — editorial portrait, Western Australia"
+          style="width:100%; filter: brightness(0.9) contrast(1.05);" loading="lazy">
+        <div
+          style="position:absolute; bottom:-1rem; right:-1rem; width:40%; border:1px solid var(--gold-dim); padding:1rem; background:var(--black);">
+          <p class="body-sm" style="color:var(--gold); font-style:italic;">"Hypnotic and mesmerizing"</p>
+          <p class="body-sm" style="margin-top:0.25rem;">— Press Review</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -330,54 +372,6 @@
     <!-- Link to the full characters gallery -->
     <div style="text-align:center; margin-top:2rem;" class="reveal">
       <a href="characters.html" class="btn btn-ghost">Explore Full Gallery </a>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT / BIO STRIP ===== -->
-  <!-- Short actor biography and career highlights -->
-  <section class="section">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;" class="reveal">
-      
-      <!-- Bio text and key statistics -->
-      <div>
-        <div class="section-divider"></div>
-        <p class="heading-sm mb-1">About</p>
-        <h2 class="heading-lg" style="margin-bottom:1.25rem;">An actor drawn to<br>complexity and truth.</h2>
-        <p class="body-lg" style="margin-bottom:1rem;">Liam Graham is a Scottish-born Australian actor known for
-          emotionally transparent performances and a quietly magnetic screen presence. His work spans psychological
-          thrillers, social dramas, surreal noir, and horror — always anchored by physicality and emotional precision.
-        </p>
-        <p class="body-md" style="margin-bottom:1.5rem;">Trained through the Western Australian Youth Theatre Company
-          and The Hub Studio's Masterclass, Graham has built a career characterised by range and commitment. His face —
-          described by casting directors as "highly expressive" — is both a gift and a signature.</p>
-        
-        <!-- Career statistics block -->
-        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
-          <div>
-            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">20+</div>
-            <div class="body-sm">Screen Credits</div>
-          </div>
-          <div>
-            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">3</div>
-            <div class="body-sm">Award Nominations</div>
-          </div>
-          <div>
-            <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">3</div>
-            <div class="body-sm">Award Wins</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Editorial portrait and review quote -->
-      <div style="position:relative;">
-        <img src="images/editorial-outdoor.png" alt="Liam Graham — editorial portrait, Western Australia"
-          style="width:100%; filter: brightness(0.9) contrast(1.05);" loading="lazy">
-        <div
-          style="position:absolute; bottom:-1rem; right:-1rem; width:40%; border:1px solid var(--gold-dim); padding:1rem; background:var(--black);">
-          <p class="body-sm" style="color:var(--gold); font-style:italic;">"Hypnotic and mesmerizing"</p>
-          <p class="body-sm" style="margin-top:0.25rem;">— Press Review</p>
-        </div>
-      </div>
     </div>
   </section>
 
