@@ -5,6 +5,30 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Theme Toggle ---
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
+      btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+  };
+  document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    btn.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+    btn.setAttribute('aria-label', current === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.addEventListener('click', () => {
+      const now = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(now);
+    });
+  });
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) setTheme(e.matches ? 'dark' : 'light');
+    });
+  }
+
   // --- Scroll Reveal Observer ---
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

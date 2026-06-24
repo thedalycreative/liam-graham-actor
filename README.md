@@ -1,91 +1,67 @@
 # Liam Graham — Actor Portfolio
 
-A static portfolio site for **Liam Graham**, a Scottish‑born Australian screen actor. The site showcases credits, character range, awards, news, and contact details — designed as a refined, editorial single‑purpose marketing site.
+A bespoke editorial portfolio site for **Liam Graham**, a Scottish‑born Australian screen actor. Built by [The Daly Creative](https://thedalycreative.com).
 
 | | |
 |---|---|
-| **Live site** | _Coming soon at a custom domain_ → `https://YOUR-DOMAIN.com` *(placeholder — domain pending)* |
+| **Live site** | _Coming soon at a custom domain_ → `https://YOUR-DOMAIN.com` *(placeholder — pending purchase)* |
 | **Vercel project** | https://vercel.com/thedalycreative/liam-graham-actor |
 | **Source** | https://github.com/thedalycreative/liam-graham-actor |
-| **Status** | Active — pre‑launch (waiting on production domain) |
+| **IMDb** | https://www.imdb.com/name/nm4223899/ |
 
 ---
 
-## Visuals
+## At a glance
 
-### Hero — black‑and‑white event portrait
 ![Liam Graham — hero portrait](images/hero-section-1.png)
-<!-- TODO: replace with hero slideshow GIF once recorded -->
 
-### Headshot
+> A six‑page cinematic site that opens like a film and earns the next click from a casting director.
+
+---
+
+## The brief
+
+Liam had years of credits — *Greenfield*, *Burning Kiss*, *The Heights*, *Hounds of Love*, *Into the Dark* — but no central place that did them justice. The brief was small but exacting.
+
+- **Editorial, not "actor template."** Feel like a film magazine, not a resumé.
+- **Load fast.** Casting people scan; they don't wait.
+- **Work on a phone** for the agent reading it between meetings.
+- **Show range** — not just *what he looks like* but *who he can become*.
+
 ![Liam Graham — primary headshot](images/headshot-primary.jpg)
 
-### Featured project — *Burning Kiss* (2018)
-![Burning Kiss — official poster](images/project-burning-kiss-poster.png)
-<!-- TODO: replace with credits-page scroll GIF -->
-
-### Behind the scenes
-![Liam Graham — behind the scenes](images/behind-the-scenes.png)
-
 ---
 
-## Description
+## What we built
 
-This is a **plain HTML, CSS, and vanilla JavaScript** site — no build step, no framework. Pages are written by hand, share a single design system in `css/style.css`, and rely on a small amount of scroll/reveal JS in `js/main.js`. The site is deployed on Vercel as static files.
+A single design system across six pages — warm cream backgrounds (and a hand‑tuned dark mode), a gold accent the same temperature as cinema lighting, and a serif/display type pairing that reads like a press kit.
 
-It serves three audiences:
-
-- **Casting directors and producers** — credits, characters, IMDb link
-- **Agents and managers** — awards and contact details
-- **Journalists and fans** — news and editorial coverage
-
-### Pages
-
-| Page | Purpose |
+| Page | What it does |
 |---|---|
-| `index.html` | Home — hero, featured credits, showreel teaser |
-| `credits.html` | Full filmography with posters and stills |
-| `characters.html` | Character range gallery |
-| `awards.html` | Wins, nominations, and laurels |
-| `news.html` | Press coverage and editorial |
-| `contact.html` | Casting / representation enquiries |
+| **Home** | Hero slideshow that slow‑zooms on load, featured credits, showreel teaser. |
+| **Credits** | The full filmography, filterable by medium and genre. |
+| **Characters** | A lightboxed range gallery — a director can step through Liam's transformations in seconds. |
+| **Awards** | Wins, nominations, and laurels — including the *Greenfield* Best Actor win. |
+| **News** | Press coverage and editorial features. |
+| **Contact** | Casting and representation enquiries. |
+
+![Burning Kiss — official poster](images/project-burning-kiss-poster.png)
+
+### Detail choices
+
+- **Cinematic image system** — every image lives inside an aspect‑ratio container (16:7 hero, 16:9 cinematic, 3:4 portrait, 2:3 poster) so layouts never reflow as photos load.
+- **Slow parallax** on the hero and gentle scroll‑reveal animations on every section — present without being showy.
+- **Film‑grain overlay** at low opacity across every page for an analogue feel.
+- **Light / dark mode toggle** in the top‑right of every page — remembers your choice, defaults to your system setting.
+- **Lightbox gallery** on the Characters page with keyboard escape.
+- **Magnetic buttons** on desktop (subtle cursor‑follow) — disabled on touch devices.
+- **No build step.** Hand‑written HTML, CSS, and vanilla JavaScript. One stylesheet, one script file, no framework you can break in eight months.
+
+![Behind the scenes](images/behind-the-scenes.png)
 
 ---
 
-## Installation
-
-Clone the repo:
-
-```bash
-git clone https://github.com/thedalycreative/liam-graham-actor.git
-cd liam-graham-actor
-```
-
-There is nothing to install for the site itself — it's plain HTML/CSS/JS. The only dev dependency is `serve` (pulled via `npx`, no `npm install` required).
-
-## Usage
-
-### Run locally
-
-```bash
-npm run dev
-```
-
-This serves the site at `http://localhost:3000`. Open any page (`/`, `/credits.html`, `/contact.html`, …) in the browser.
-
-### Edit content
-
-- **Copy / text** — edit the relevant `*.html` file directly. Sections are commented (`<!-- HERO -->`, `<!-- CREDITS -->`, etc.).
-- **Styles** — all design tokens (colors, fonts, easings, timings) live at the top of `css/style.css` under `:root`.
-- **Images** — drop new files into `/images/` and reference them as `<img src="images/<filename>">`. Keep filenames descriptive (`project-*.png`, `headshot-*.jpg`, `portrait-*.png`).
-
-### Deploy
-
-Pushes to the default branch deploy automatically via the Vercel project linked above. No build command is needed; Vercel serves files straight from the repo root. Anything under `archive/` (see below) is excluded from the deploy via `.vercelignore`.
-
----
-
-## Project structure
+## What's in this repo
 
 ```
 liam-graham-actor/
@@ -95,56 +71,33 @@ liam-graham-actor/
 ├── awards.html         # Awards & nominations
 ├── news.html           # Press
 ├── contact.html        # Contact
-├── css/
-│   └── style.css       # Design system + all styles
-├── js/
-│   └── main.js         # Scroll reveals, nav, slideshow
-├── images/             # All images referenced by the live site (40 files)
-├── archive/            # NOT deployed — raw source assets
-│   ├── loose-images/         # Original unprocessed shoots & posters
-│   ├── headshots-stock/      # Bulk character/headshot studies
-│   ├── unreferenced-images/  # Site image variants not currently in use
-│   └── convert_light.py      # One‑off image processing script
-├── package.json        # Dev server only (`npm run dev`)
-├── .vercelignore       # Excludes archive/ and *.zip from deploys
-└── README.md           # You are here
+├── css/style.css       # Design system + every style on the site
+├── js/main.js          # Scroll reveals, lightbox, theme toggle, slideshow
+├── images/             # 40 images — every one is used by a page
+└── archive/            # Source assets (raw shoots, alt posters) — not deployed
 ```
 
-The `archive/` folder is intentional: it preserves the original asset library (raw shoots, alternate cuts, unused poster comps) without bloating the deployed site. Vercel ignores it. If you need an image that isn't in `/images/`, look there first.
+---
+
+## Tech notes
+
+Plain HTML / CSS / JS. No framework, no build step, no dependencies in production. Deploys automatically from `main` to Vercel; previews build on every pull request.
+
+Run locally:
+
+```bash
+npm run dev   # serves at http://localhost:3000
+```
 
 ---
 
-## Support
-
-For issues with the site itself, open an issue on the [GitHub repo](https://github.com/thedalycreative/liam-graham-actor/issues).
-
-For **casting, representation, and professional enquiries**, use the [contact page](contact.html) or message [@liamansellgraham](https://www.instagram.com/liamansellgraham/) on Instagram.
-
----
-
-## Roadmap
-
-- [ ] Purchase and connect production domain
-- [ ] Add showreel video to home page
-- [ ] Record short GIFs for the README visuals (hero slideshow, credits scroll)
-- [ ] Add Open Graph preview images per page
-- [ ] Optional: migrate to a static site generator if the page count grows
-
----
-
-## Contributing
-
-This is a personal portfolio site and is **not accepting external contributions**. If you spot a bug or have a suggestion, an issue is welcome.
-
----
-
-## Authors and acknowledgment
+## Credits
 
 - **Subject** — Liam Graham · [IMDb](https://www.imdb.com/name/nm4223899/) · [@liamansellgraham](https://www.instagram.com/liamansellgraham/)
-- **Design and build** — [The Daly Creative](https://thedalycreative.com)
+- **Design & build** — [The Daly Creative](https://thedalycreative.com)
+
+For **casting, representation, and professional enquiries** — see the [contact page](contact.html) or DM Liam on Instagram.
 
 ---
 
-## License
-
-© Liam Graham. **All rights reserved.** All images, copy, and brand assets in this repository are the property of Liam Graham and may not be reused without written permission.
+© Liam Graham. All rights reserved. All images, copy, and brand assets in this repository are the property of Liam Graham and may not be reused without written permission.
