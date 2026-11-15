@@ -316,6 +316,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('img[data-src]').forEach(img => lazyObserver.observe(img));
   }
 
+  // --- Tap to expand credit descriptions (touch screens have no hover) ---
+  if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('.credit-card').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('is-expanded'));
+    });
+  }
+
   console.log('%c LIAM GRAHAM ', 'background: #C9A96E; color: #050505; font-family: sans-serif; font-weight: 700; padding: 4px 8px; font-size: 14px;');
   console.log('%c Actor Portfolio — Built with precision.', 'color: #8A8680; font-family: sans-serif; font-size: 11px;');
 });

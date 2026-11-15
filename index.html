@@ -95,14 +95,14 @@
 
       <div class="hero-actions">
         <a href="credits.html" class="btn btn-primary">View Credits</a>
-        <a href="characters.html" class="btn btn-outline">Characters</a>
+        <a href="characters.html" class="btn btn-outline hero-btn-optional">Characters</a>
         <a href="contact.html" class="btn btn-outline">Contact</a>
       </div>
     </div>
 
     <!-- Scroll indicator -->
     <!-- Animated scrolling prompt at the bottom right -->
-    <div
+    <div class="hero-scroll"
       style="position:absolute; bottom:2rem; right:2rem; z-index:3; display:flex; flex-direction:column; align-items:center; gap:0.5rem; opacity:0; animation: fadeUp 0.8s ease 1.5s forwards;">
       <span
         style="font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); writing-mode:vertical-rl;">Scroll</span>
@@ -160,7 +160,7 @@
   <!-- ===== ABOUT / BIO STRIP ===== -->
   <!-- Short actor biography and career highlights — moved up to introduce Liam before his work -->
   <section class="section">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;" class="reveal">
+    <div class="about-grid reveal">
 
       <!-- Bio text and key statistics -->
       <div>
@@ -176,7 +176,7 @@
           described by casting directors as "highly expressive" — is both a gift and a signature.</p>
 
         <!-- Career statistics block -->
-        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+        <div class="about-stats">
           <div>
             <div style="font-family:var(--display); font-size:2.5rem; color:var(--gold); line-height:1;">20+</div>
             <div class="body-sm">Screen Credits</div>
@@ -193,11 +193,10 @@
       </div>
 
       <!-- Editorial portrait and review quote -->
-      <div style="position:relative;">
+      <div class="about-portrait">
         <img src="images/editorial-outdoor.png" alt="Liam Graham — editorial portrait, Western Australia"
           style="width:100%; filter: brightness(0.9) contrast(1.05);" loading="lazy">
-        <div
-          style="position:absolute; bottom:-1rem; right:-1rem; width:40%; border:1px solid var(--gold-dim); padding:1rem; background:var(--black);">
+        <div class="about-quote">
           <p class="body-sm" style="color:var(--gold); font-style:italic;">"Hypnotic and mesmerizing"</p>
           <p class="body-sm" style="margin-top:0.25rem;">— Press Review</p>
         </div>
